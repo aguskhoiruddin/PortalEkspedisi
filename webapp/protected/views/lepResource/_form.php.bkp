@@ -1,0 +1,257 @@
+<div class="form">
+
+
+<?php $form = $this->beginWidget('GxActiveForm', array(
+	'id' => 'lep-resource-form',
+	'enableAjaxValidation' => false,
+));
+?>
+
+	<p class="note">
+		<?php echo Yii::t('app', 'Fields with'); ?> <span class="required">*</span> <?php echo Yii::t('app', 'are required'); ?>.
+	</p>
+
+	<?php echo $form->errorSummary($model); ?>
+
+		<div class="row">
+		<?php echo $form->labelEx($model,'category_id'); ?>
+		<?php echo $form->textField($model, 'category_id',array('maxlength'=>'255')); ?>
+		<?php echo $form->error($model,'category_id'); ?>
+		</div><!-- row -->
+		<div class="row">
+		<?php echo $form->labelEx($model,'title'); ?>
+		<?php echo $form->textField($model, 'title',array('maxlength'=>'255')); ?>
+		<?php echo $form->error($model,'title'); ?>
+		</div><!-- row -->
+		<div class="row">
+		<?php echo $form->labelEx($model,'status'); ?>
+		<?php echo $form->textField($model, 'status',array('maxlength'=>'1')); ?>
+		<?php echo $form->error($model,'status'); ?>
+		</div><!-- row -->
+		<div class="row">
+		<?php echo $form->labelEx($model,'description'); ?>
+		<?php echo $form->textArea($model, 'description'); ?>
+		<?php echo $form->error($model,'description'); ?>
+		</div><!-- row -->
+		<div class="row">
+		<?php echo $form->labelEx($model,'url'); ?>
+		<?php echo $form->textField($model, 'url',array('maxlength'=>'255')); ?>
+		<?php echo $form->error($model,'url'); ?>
+		</div><!-- row -->
+		<div class="row">
+		<?php echo $form->labelEx($model,'owner_name'); ?>
+		<?php echo $form->textField($model, 'owner_name',array('maxlength'=>'255')); ?>
+		<?php echo $form->error($model,'owner_name'); ?>
+		</div><!-- row -->
+		<div class="row">
+		<?php echo $form->labelEx($model,'email'); ?>
+		<?php echo $form->textField($model, 'email',array('maxlength'=>'255')); ?>
+		<?php echo $form->error($model,'email'); ?>
+		</div><!-- row -->
+		<div class="row">
+		<?php echo $form->labelEx($model,'hits'); ?>
+		<?php echo $form->textField($model, 'hits'); ?>
+		<?php echo $form->error($model,'hits'); ?>
+		</div><!-- row -->
+		<div class="row">
+		<?php echo $form->labelEx($model,'created_at'); ?>
+		<?php echo $form->textField($model, 'created_at',array('maxlength'=>'10')); ?>
+		<?php echo $form->error($model,'created_at'); ?>
+		</div><!-- row -->
+		<div class="row">
+		<?php echo $form->labelEx($model,'submit_code'); ?>
+		<?php echo $form->textField($model, 'submit_code',array('maxlength'=>'255')); ?>
+		<?php echo $form->error($model,'submit_code'); ?>
+		</div><!-- row -->
+		<div class="row">
+		<?php echo $form->labelEx($model,'address'); ?>
+		<?php echo $form->textField($model, 'address',array('maxlength'=>'255')); ?>
+		<?php echo $form->error($model,'address'); ?>
+		</div><!-- row -->
+		<div class="row">
+		<?php echo $form->labelEx($model,'city'); ?>
+		<?php echo $form->textField($model, 'city',array('maxlength'=>'255')); ?>
+		<?php echo $form->error($model,'city'); ?>
+		</div><!-- row -->
+		<div class="row">
+		<?php echo $form->labelEx($model,'state'); ?>
+		<?php echo $form->textField($model, 'state',array('maxlength'=>'255')); ?>
+		<?php echo $form->error($model,'state'); ?>
+		</div><!-- row -->
+		<div class="row">
+		<?php echo $form->labelEx($model,'zip'); ?>
+		<?php echo $form->textField($model, 'zip',array('maxlength'=>'255')); ?>
+		<?php echo $form->error($model,'zip'); ?>
+		</div><!-- row -->
+		<div class="row">
+		<?php echo $form->labelEx($model,'country'); ?>
+		<?php echo $form->textField($model, 'country',array('maxlength'=>'255')); ?>
+		<?php echo $form->error($model,'country'); ?>
+		</div><!-- row -->
+		<div class="row">
+		<?php echo $form->labelEx($model,'last_update'); ?>
+		<?php echo $form->textField($model, 'last_update',array('maxlength'=>'10')); ?>
+		<?php echo $form->error($model,'last_update'); ?>
+		</div><!-- row -->
+		<div class="row">
+		<?php echo $form->labelEx($model,'featured'); ?>
+		<?php echo $form->textField($model, 'featured',array('maxlength'=>'1')); ?>
+		<?php echo $form->error($model,'featured'); ?>
+		</div><!-- row -->
+		<div class="row">
+		<?php echo $form->labelEx($model,'featured_expired'); ?>
+		<?php echo $form->textField($model, 'featured_expired',array('maxlength'=>'10')); ?>
+		<?php echo $form->error($model,'featured_expired'); ?>
+		</div><!-- row -->
+		<div class="row">
+		<?php echo $form->labelEx($model,'seo_title'); ?>
+		<?php echo $form->textField($model, 'seo_title',array('maxlength'=>'255')); ?>
+		<?php echo $form->error($model,'seo_title'); ?>
+		</div><!-- row -->
+		<div class="row">
+		<?php echo $form->labelEx($model,'tag'); ?>
+		<?php echo $form->textArea($model, 'tag'); ?>
+		<?php echo $form->error($model,'tag'); ?>
+		</div><!-- row -->
+		<div class="row">
+		<?php echo $form->labelEx($model,'user_id'); ?>
+		<?php echo $form->textField($model, 'user_id'); ?>
+		<?php echo $form->error($model,'user_id'); ?>
+		</div><!-- row -->
+		<div class="row">
+		<?php echo $form->labelEx($model,'ar_number_votes'); ?>
+		<?php echo $form->textField($model, 'ar_number_votes'); ?>
+		<?php echo $form->error($model,'ar_number_votes'); ?>
+		</div><!-- row -->
+		<div class="row">
+		<?php echo $form->labelEx($model,'ar_total_points'); ?>
+		<?php echo $form->textField($model, 'ar_total_points'); ?>
+		<?php echo $form->error($model,'ar_total_points'); ?>
+		</div><!-- row -->
+		<div class="row">
+		<?php echo $form->labelEx($model,'ar_dec_avg'); ?>
+		<?php echo $form->textField($model, 'ar_dec_avg'); ?>
+		<?php echo $form->error($model,'ar_dec_avg'); ?>
+		</div><!-- row -->
+		<div class="row">
+		<?php echo $form->labelEx($model,'ar_whole_avg'); ?>
+		<?php echo $form->textField($model, 'ar_whole_avg'); ?>
+		<?php echo $form->error($model,'ar_whole_avg'); ?>
+		</div><!-- row -->
+		<div class="row">
+		<?php echo $form->labelEx($model,'ss_googlepr'); ?>
+		<?php echo $form->textField($model, 'ss_googlepr',array('maxlength'=>'255')); ?>
+		<?php echo $form->error($model,'ss_googlepr'); ?>
+		</div><!-- row -->
+		<div class="row">
+		<?php echo $form->labelEx($model,'ss_alexarank'); ?>
+		<?php echo $form->textField($model, 'ss_alexarank',array('maxlength'=>'255')); ?>
+		<?php echo $form->error($model,'ss_alexarank'); ?>
+		</div><!-- row -->
+		<div class="row">
+		<?php echo $form->labelEx($model,'ss_google_indexed'); ?>
+		<?php echo $form->textField($model, 'ss_google_indexed',array('maxlength'=>'255')); ?>
+		<?php echo $form->error($model,'ss_google_indexed'); ?>
+		</div><!-- row -->
+		<div class="row">
+		<?php echo $form->labelEx($model,'ss_yahoo_indexed'); ?>
+		<?php echo $form->textField($model, 'ss_yahoo_indexed',array('maxlength'=>'255')); ?>
+		<?php echo $form->error($model,'ss_yahoo_indexed'); ?>
+		</div><!-- row -->
+		<div class="row">
+		<?php echo $form->labelEx($model,'ss_msn_indexed'); ?>
+		<?php echo $form->textField($model, 'ss_msn_indexed',array('maxlength'=>'255')); ?>
+		<?php echo $form->error($model,'ss_msn_indexed'); ?>
+		</div><!-- row -->
+		<div class="row">
+		<?php echo $form->labelEx($model,'ss_google_linkback'); ?>
+		<?php echo $form->textField($model, 'ss_google_linkback',array('maxlength'=>'255')); ?>
+		<?php echo $form->error($model,'ss_google_linkback'); ?>
+		</div><!-- row -->
+		<div class="row">
+		<?php echo $form->labelEx($model,'ss_yahoo_linkback'); ?>
+		<?php echo $form->textField($model, 'ss_yahoo_linkback',array('maxlength'=>'255')); ?>
+		<?php echo $form->error($model,'ss_yahoo_linkback'); ?>
+		</div><!-- row -->
+		<div class="row">
+		<?php echo $form->labelEx($model,'ss_last_update'); ?>
+		<?php echo $form->textField($model, 'ss_last_update',array('maxlength'=>'10')); ?>
+		<?php echo $form->error($model,'ss_last_update'); ?>
+		</div><!-- row -->
+		<div class="row">
+		<?php echo $form->labelEx($model,'vote'); ?>
+		<?php echo $form->textField($model, 'vote'); ?>
+		<?php echo $form->error($model,'vote'); ?>
+		</div><!-- row -->
+		<div class="row">
+		<?php echo $form->labelEx($model,'reciprocal_url'); ?>
+		<?php echo $form->textField($model, 'reciprocal_url',array('maxlength'=>'255')); ?>
+		<?php echo $form->error($model,'reciprocal_url'); ?>
+		</div><!-- row -->
+		<div class="row">
+		<?php echo $form->labelEx($model,'last_checked_online'); ?>
+		<?php echo $form->textField($model, 'last_checked_online',array('maxlength'=>'10')); ?>
+		<?php echo $form->error($model,'last_checked_online'); ?>
+		</div><!-- row -->
+		<div class="row">
+		<?php echo $form->labelEx($model,'last_checked_reciprocal'); ?>
+		<?php echo $form->textField($model, 'last_checked_reciprocal',array('maxlength'=>'10')); ?>
+		<?php echo $form->error($model,'last_checked_reciprocal'); ?>
+		</div><!-- row -->
+		<div class="row">
+		<?php echo $form->labelEx($model,'online'); ?>
+		<?php echo $form->textField($model, 'online',array('maxlength'=>'1')); ?>
+		<?php echo $form->error($model,'online'); ?>
+		</div><!-- row -->
+		<div class="row">
+		<?php echo $form->labelEx($model,'reciprocal'); ?>
+		<?php echo $form->textField($model, 'reciprocal',array('maxlength'=>'1')); ?>
+		<?php echo $form->error($model,'reciprocal'); ?>
+		</div><!-- row -->
+		<div class="row">
+		<?php echo $form->labelEx($model,'phone'); ?>
+		<?php echo $form->textField($model, 'phone',array('maxlength'=>'255')); ?>
+		<?php echo $form->error($model,'phone'); ?>
+		</div><!-- row -->
+		<div class="row">
+		<?php echo $form->labelEx($model,'fax'); ?>
+		<?php echo $form->textField($model, 'fax',array('maxlength'=>'255')); ?>
+		<?php echo $form->error($model,'fax'); ?>
+		</div><!-- row -->
+		<div class="row">
+		<?php echo $form->labelEx($model,'logo'); ?>
+		<?php echo $form->textField($model, 'logo',array('maxlength'=>'255')); ?>
+		<?php echo $form->error($model,'logo'); ?>
+		</div><!-- row -->
+		<div class="row">
+		<?php echo $form->labelEx($model,'suspended'); ?>
+		<?php echo $form->textField($model, 'suspended',array('maxlength'=>'1')); ?>
+		<?php echo $form->error($model,'suspended'); ?>
+		</div><!-- row -->
+		<div class="row">
+		<?php echo $form->labelEx($model,'suspended_reason'); ?>
+		<?php echo $form->textField($model, 'suspended_reason',array('maxlength'=>'255')); ?>
+		<?php echo $form->error($model,'suspended_reason'); ?>
+		</div><!-- row -->
+		<div class="row">
+		<?php echo $form->labelEx($model,'listing_type'); ?>
+		<?php echo $form->textField($model, 'listing_type',array('maxlength'=>'255')); ?>
+		<?php echo $form->error($model,'listing_type'); ?>
+		</div><!-- row -->
+		<div class="row">
+		<?php echo $form->labelEx($model,'phone2'); ?>
+		<?php echo $form->textField($model, 'phone2',array('maxlength'=>'255')); ?>
+		<?php echo $form->error($model,'phone2'); ?>
+		</div><!-- row -->
+		<div class="row">
+		<?php echo $form->labelEx($model,'phone3'); ?>
+		<?php echo $form->textField($model, 'phone3',array('maxlength'=>'255')); ?>
+		<?php echo $form->error($model,'phone3'); ?>
+		</div><!-- row -->
+
+
+<?php
+echo GxHtml::submitButton(Yii::t('app', 'Save'));
+$this->endWidget();
+?>
+</div><!-- form -->
