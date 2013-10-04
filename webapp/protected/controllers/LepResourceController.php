@@ -4,7 +4,6 @@ class LepResourceController extends GxController {
 
 
 	public function actionView($id) {
-		$this->layout = '//layouts/mws-admin/main';
 		$this->render('view', array(
 			'model' => $this->loadModel($id, 'LepResource'),
 		));
@@ -29,9 +28,6 @@ class LepResourceController extends GxController {
 	}
 
 	public function actionUpdate($id) {
-		$this->layout = '//layouts/mws-admin/main';
-		
-		
 		$model = $this->loadModel($id, 'LepResource');
 
 
@@ -59,7 +55,6 @@ class LepResourceController extends GxController {
 	}
 
 	public function actionIndex() {
-		$this->layout = '//layouts/mws-admin/main';
 		$dataProvider = new CActiveDataProvider('LepResource');
 		$this->render('index', array(
 			'dataProvider' => $dataProvider,
