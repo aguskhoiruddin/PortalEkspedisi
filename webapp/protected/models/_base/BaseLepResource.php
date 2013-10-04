@@ -79,13 +79,13 @@ abstract class BaseLepResource extends GxActiveRecord {
 
 	public function rules() {
 		return array(
-			array('category_id, description, url, owner_name, tag, ss_googlepr, ss_alexarank, ss_google_indexed, ss_yahoo_indexed, ss_msn_indexed, ss_google_linkback, ss_yahoo_linkback, ss_last_update', 'required'),
+			array('category_id, description, url, owner_name, tag', 'required'),
 			array('hits, user_id, ar_number_votes, ar_total_points, ar_whole_avg, vote', 'numerical', 'integerOnly'=>true),
 			array('ar_dec_avg', 'numerical'),
 			array('category_id, title, url, owner_name, email, submit_code, address, city, state, zip, country, seo_title, ss_googlepr, ss_alexarank, ss_google_indexed, ss_yahoo_indexed, ss_msn_indexed, ss_google_linkback, ss_yahoo_linkback, reciprocal_url, phone, fax, logo, suspended_reason, listing_type, phone2, phone3', 'length', 'max'=>255),
 			array('status, featured, online, reciprocal, suspended', 'length', 'max'=>1),
 			array('created_at, last_update, featured_expired, ss_last_update, last_checked_online, last_checked_reciprocal', 'length', 'max'=>10),
-			array('title, status, email, hits, created_at, submit_code, address, city, state, zip, country, last_update, featured, featured_expired, seo_title, user_id, ar_number_votes, ar_total_points, ar_dec_avg, ar_whole_avg, vote, reciprocal_url, last_checked_online, last_checked_reciprocal, online, reciprocal, phone, fax, logo, suspended, suspended_reason, listing_type, phone2, phone3', 'default', 'setOnEmpty' => true, 'value' => null),
+			array('title, status, email, hits, created_at, submit_code, address, city, state, zip, country, last_update, featured, featured_expired, seo_title, user_id, ar_number_votes, ar_total_points, ar_dec_avg, ar_whole_avg, ss_googlepr, ss_alexarank, ss_google_indexed, ss_yahoo_indexed, ss_msn_indexed, ss_google_linkback, ss_yahoo_linkback, ss_last_update, vote, reciprocal_url, last_checked_online, last_checked_reciprocal, online, reciprocal, phone, fax, logo, suspended, suspended_reason, listing_type, phone2, phone3', 'default', 'setOnEmpty' => true, 'value' => null),
 			array('res_id, category_id, title, status, description, url, owner_name, email, hits, created_at, submit_code, address, city, state, zip, country, last_update, featured, featured_expired, seo_title, tag, user_id, ar_number_votes, ar_total_points, ar_dec_avg, ar_whole_avg, ss_googlepr, ss_alexarank, ss_google_indexed, ss_yahoo_indexed, ss_msn_indexed, ss_google_linkback, ss_yahoo_linkback, ss_last_update, vote, reciprocal_url, last_checked_online, last_checked_reciprocal, online, reciprocal, phone, fax, logo, suspended, suspended_reason, listing_type, phone2, phone3', 'safe', 'on'=>'search'),
 		);
 	}

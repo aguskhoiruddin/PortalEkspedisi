@@ -1,7 +1,18 @@
-
-<h1><?php echo Yii::t('app', 'Update') . ' Company ' . GxHtml::encode(GxHtml::valueEx($model)); ?></h1>
-
 <?php
-$this->renderPartial('_form', array(
-		'model' => $model));
+
+$this->breadcrumbs = array(
+	$model->label(2) => array('index'),
+	GxHtml::valueEx($model) => array('view', 'id' => GxActiveRecord::extractPkValue($model, true)),
+	Yii::t('app', 'Update'),
+);
 ?>
+<div class="mws-panel grid_8">
+	<div class="mws-panel-header">
+    	<span><?php echo GxHtml::encode($model->label()); ?></span>
+    </div>
+    <div class="mws-panel-body no-padding">
+    	<?php
+		$this->renderPartial('_form', array(
+				'model' => $model));
+		?>    </div>    	
+</div>

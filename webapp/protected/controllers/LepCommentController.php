@@ -1,28 +1,26 @@
 <?php
 
-class LepResourceController extends GxController {
+class LepCommentController extends GxController {
 
 
 	public function actionView($id) {
-		$this->layout = '//layouts/mws-admin/main';
 		$this->render('view', array(
-			'model' => $this->loadModel($id, 'LepResource'),
+			'model' => $this->loadModel($id, 'LepComment'),
 		));
 	}
 
 	public function actionCreate() {
-		$this->layout = '//layouts/mws-admin/main';
-		$model = new LepResource;
+		$model = new LepComment;
 
 
-		if (isset($_POST['LepResource'])) {
-			$model->setAttributes($_POST['LepResource']);
+		if (isset($_POST['LepComment'])) {
+			$model->setAttributes($_POST['LepComment']);
 
 			if ($model->save()) {
 				if (Yii::app()->getRequest()->getIsAjaxRequest())
 					Yii::app()->end();
 				else
-					$this->redirect(array('view', 'id' => $model->res_id));
+					$this->redirect(array('view', 'id' => $model->comment_id));
 			}
 		}
 
@@ -30,15 +28,14 @@ class LepResourceController extends GxController {
 	}
 
 	public function actionUpdate($id) {
-		$this->layout = '//layouts/mws-admin/main';
-		$model = $this->loadModel($id, 'LepResource');
+		$model = $this->loadModel($id, 'LepComment');
 
 
-		if (isset($_POST['LepResource'])) {
-			$model->setAttributes($_POST['LepResource']);
+		if (isset($_POST['LepComment'])) {
+			$model->setAttributes($_POST['LepComment']);
 
 			if ($model->save()) {
-				$this->redirect(array('view', 'id' => $model->res_id));
+				$this->redirect(array('view', 'id' => $model->comment_id));
 			}
 		}
 
@@ -49,7 +46,7 @@ class LepResourceController extends GxController {
 
 	public function actionDelete($id) {
 		if (Yii::app()->getRequest()->getIsPostRequest()) {
-			$this->loadModel($id, 'LepResource')->delete();
+			$this->loadModel($id, 'LepComment')->delete();
 
 			if (!Yii::app()->getRequest()->getIsAjaxRequest())
 				$this->redirect(array('admin'));
@@ -59,18 +56,18 @@ class LepResourceController extends GxController {
 
 	public function actionIndex() {
 		$this->layout = '//layouts/mws-admin/main';
-		$dataProvider = new CActiveDataProvider('LepResource');
+		$dataProvider = new CActiveDataProvider('LepComment');
 		$this->render('index', array(
 			'dataProvider' => $dataProvider,
 		));
 	}
 
 	public function actionAdmin() {
-		$model = new LepResource('search');
+		$model = new LepComment('search');
 		$model->unsetAttributes();
 
-		if (isset($_GET['LepResource']))
-			$model->setAttributes($_GET['LepResource']);
+		if (isset($_GET['LepComment']))
+			$model->setAttributes($_GET['LepComment']);
 
 		$this->render('admin', array(
 			'model' => $model,

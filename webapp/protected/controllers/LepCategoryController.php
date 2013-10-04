@@ -10,6 +10,7 @@ class LepCategoryController extends GxController {
 	}
 
 	public function actionCreate() {
+		$this->layout = '//layouts/mws-admin/main';
 		$model = new LepCategory;
 
 
