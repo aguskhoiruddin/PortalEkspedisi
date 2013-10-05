@@ -1,3 +1,10 @@
+
+#################
+## YII Config
+#################
+webapp/protected/config/main.php
+
+
 #################
 ## Eclipse
 #################
@@ -213,3 +220,6 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
+
+
+webapp/protected/config/main.php
