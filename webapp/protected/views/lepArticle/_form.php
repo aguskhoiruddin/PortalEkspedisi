@@ -13,14 +13,33 @@
 		<div class="mws-form-row">
 			<div class="mws-form-label"><?php echo $form->labelEx($model,'res_id'); ?></div>
 			<div class="mws-form-item">
-				<?php echo $form->textField($model, 'res_id'); ?>
+				<?php //echo $form->textField($model, 'res_id'); ?>
+                <?php
+					$data = CHtml::listData(lepResource::model()->findAll(), 
+						'res_id', 'title');
+					echo $form->dropDownList(
+						$model,
+						'res_id',
+						$data,
+						array('empty'=>Yii::t('fim','Search All')));
+				?>
+				<?php echo $form->error($model,'res_id'); ?>
 				<?php echo $form->error($model,'res_id'); ?>
 			</div>
 		</div>
 		<div class="mws-form-row">
 			<div class="mws-form-label"><?php echo $form->labelEx($model,'user_id'); ?></div>
 			<div class="mws-form-item">
-				<?php echo $form->textField($model, 'user_id'); ?>
+            	<?php //echo $form->textField($model, 'user_id'); ?>
+                <?php
+					$data = CHtml::listData(lepUser::model()->findAll(), 
+						'user_id', 'username');
+					echo $form->dropDownList(
+						$model,
+						'user_id',
+						$data,
+						array('empty'=>Yii::t('fim','Search All')));
+				?>
 				<?php echo $form->error($model,'user_id'); ?>
 			</div>
 		</div>

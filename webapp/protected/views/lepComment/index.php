@@ -1,19 +1,20 @@
+<?php Yii::app()->language='fr'; ?>
 <div class="mws-panel grid_8">
 	<div class="mws-panel-header">
-		<span><i class="icon-table"></i> Data Table with Numbered Pagination</span>
+		<span><i class="icon-table"></i><?php echo Yii::t('strings','Comment');?></span>
 	</div>
 	<div class="mws-panel-body no-padding">
 		<table class="mws-datatable-fn mws-table">
 			<thead>
 				<tr>
-					<th>Subject</th>
-					<th>User</th>
-					<th>Company</th>
-					<th>Comment</th>
-					<th>Rating</th>
-					<th>Date</th>
-					<th>Approve</th>
-					<th>Delete</th>
+					<th><?php echo Yii::t('strings','Subject');?></th>
+					<th><?php echo Yii::t('strings','User');?></th>
+					<th><?php echo Yii::t('strings','Company');?></th>
+					<th><?php echo Yii::t('strings','Coment');?></th>
+					<th><?php echo Yii::t('strings','Reting');?></th>
+					<th><?php echo Yii::t('strings','Date');?></th>
+					<th><?php echo Yii::t('strings','Approve');?></th>
+					<th><?php echo Yii::t('strings','Delete');?></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -31,12 +32,12 @@
 							<td style='text-align:center'>".$m->created_at."</td>
 							<td style='text-align:center'>
 								<a href='".Yii::app()->request->baseUrl."/index.php/lepComment/update/".$m->comment_id."' class='btn btn-primary'>
-									Approve
+									".Yii::t('strings','Approve')."
 								</a>
 							</td>
 							<td style='text-align:center'>
 								<a href='".Yii::app()->request->baseUrl."/index.php/lepComment/update/".$m->comment_id."' class='btn btn-danger'>
-									Delete
+									".Yii::t('strings',"Delete")."
 								</a>
 							</td>
 						</tr>";

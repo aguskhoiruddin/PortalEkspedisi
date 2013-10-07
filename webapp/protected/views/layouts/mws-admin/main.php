@@ -5,6 +5,8 @@
 <!--[if gt IE 8]><!--><html lang="en"><!--<![endif]-->
 <head>
 <meta charset="utf-8">
+<!-- LANGUAGE. Later get from session -->
+
 
 <!-- Viewport Metatag -->
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
@@ -37,7 +39,6 @@
 </head>
 
 <body>
-
 	<!-- Themer (Remove if not needed) -->  
 	<div id="mws-themer">
         <div id="mws-themer-content">
@@ -72,7 +73,7 @@
         	<form class="mws-form">
             	<div class="mws-form-row">
 		        	<div class="mws-form-item">
-                    	<textarea cols="auto" rows="auto" readonly="readonly"></textarea>
+                    	<textarea cols="auto" rows="auto" readonly></textarea>
                     </div>
                 </div>
             </form>

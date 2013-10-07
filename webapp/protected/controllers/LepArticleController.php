@@ -10,6 +10,7 @@ class LepArticleController extends GxController {
 	}
 
 	public function actionCreate() {
+		$this->layout = '//layouts/mws-admin/main';
 		$model = new LepArticle;
 
 
@@ -28,6 +29,7 @@ class LepArticleController extends GxController {
 	}
 
 	public function actionUpdate($id) {
+		$this->layout = '//layouts/mws-admin/main';
 		$model = $this->loadModel($id, 'LepArticle');
 
 
@@ -55,6 +57,7 @@ class LepArticleController extends GxController {
 	}
 
 	public function actionIndex() {
+		$this->layout = '//layouts/mws-admin/main';
 		$dataProvider = new CActiveDataProvider('LepArticle');
 		$this->render('index', array(
 			'dataProvider' => $dataProvider,
