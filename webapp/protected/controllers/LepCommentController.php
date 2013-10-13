@@ -9,6 +9,17 @@ class LepCommentController extends GxController {
 		));
 	}
 
+	public function actionRemove() {
+		$connection=Yii::app()->db;   // assuming you have configured a "db" connection
+		// If not, you may explicitly create a connection:
+		// $connection=new CDbConnection($dsn,$username,$password);
+		$command=$connection->createCommand("SELECT * FROM Lep_Resource");
+		// if needed, the SQL statement may be updated as follows:
+		// $command->text=$newSQL;
+		$rowCount=$command->execute();
+		echo $rowCount;
+	}
+	
 	public function actionCreate() {
 		$model = new LepComment;
 

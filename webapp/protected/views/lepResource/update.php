@@ -7,7 +7,7 @@ $this->breadcrumbs = array(
 );
 ?>
 
-<a class="mws-stat" href="table.html#">
+<a class="mws-stat" href="<?php echo Yii::app()->request->baseUrl."/lepComment/" ?>">
     <!-- Statistic Icon (edit to change icon) -->
     <span class="mws-stat-icon icol32-note"></span>
     
@@ -18,9 +18,12 @@ $this->breadcrumbs = array(
         </span>
         <span class="mws-stat-value">
         	<?php 
-				echo '123';
-				//$command = "SELECT * from lep_resource";
-				//ß$dataReader=$command->query();
+				$lepComment=LepComment::model()->findAll(array(
+					'condition'=>'res_id=:res_id',
+					'params'=>array(':res_id'=> GxHtml::encode(GxHtml::valueEx($model)) ),
+				));
+				
+				echo count( GxHtml::encode(GxHtml::valueEx($model)) )." ";
 			?>
         </span>
     </span>

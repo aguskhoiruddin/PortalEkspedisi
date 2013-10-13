@@ -1,4 +1,7 @@
 <?php Yii::app()->language='fr'; ?>
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
 <div class="mws-panel grid_8">
 	<div class="mws-panel-header">
 		<span><i class="icon-table"></i><?php echo Yii::t('strings','Comment');?></span>
@@ -31,12 +34,12 @@
 							<td style='text-align:center'>".$m->rating."</td>
 							<td style='text-align:center'>".$m->created_at."</td>
 							<td style='text-align:center'>
-								<a href='".Yii::app()->request->baseUrl."/index.php/lepComment/update/".$m->comment_id."' class='btn btn-primary'>
-									".Yii::t('strings','Approve')."
+								<a href='#' id='btnApprove' class='btn btn-primary'>
+									".Yii::t('strings',"Approve")."
 								</a>
 							</td>
 							<td style='text-align:center'>
-								<a href='".Yii::app()->request->baseUrl."/index.php/lepComment/update/".$m->comment_id."' class='btn btn-danger'>
+								<a href='#' id='btnDelete' class='btn btn-danger'>
 									".Yii::t('strings',"Delete")."
 								</a>
 							</td>
@@ -47,3 +50,38 @@
 		</table>
 	</div>
 </div>
+
+<script>
+	$( "#btnApprove" ).click(function() {
+	<?php $sql = "SELECT * FROM Lep_Resource";?>
+	alert('<?php echo $sql  ?>');
+	$.ajax({
+            type: "POST",
+            url: "<?php echo Yii::app()->request->baseUrl."/index.php/lepComment/Remove/" ?>",
+            data: {data:"<?php echo $sql ?>"},
+            dataType: "text",
+            success: function(data){
+				alert( data );
+            }
+	});
+          
+});
+</script>
+
+
+<script>
+	$( "#btnDelete" ).click(function() {
+	<?php $sql = "SELECT * FROM Lep_Resource";?>
+	alert('<?php echo $sql  ?>');
+	$.ajax({
+            type: "POST",
+            url: "<?php echo Yii::app()->request->baseUrl."/index.php/lepComment/Remove/" ?>",
+            data: {data:"<?php echo $sql ?>"},
+            dataType: "text",
+            success: function(data){
+				alert( data );
+            }
+	});
+          
+});
+</script>

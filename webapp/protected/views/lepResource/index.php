@@ -27,7 +27,7 @@
 							<td style='text-align:center'>".$m->address."</td>
 							<td style='text-align:center'>".$m->city."</td>
 							<td style='text-align:center'>
-								<a href='".Yii::app()->request->baseUrl."/index.php/lepResource/update/".$m->res_id."' class='btn btn-primary'>
+								<a href='".Yii::app()->request->baseUrl."/lepResource/update/".$m->res_id."' class='btn btn-primary'>
 									".Yii::t('strings','Update')."
 								</a>
 							</td>
