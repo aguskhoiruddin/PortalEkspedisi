@@ -20,17 +20,17 @@ $this->breadcrumbs = array(
         	<?php 
 				$lepComment=LepComment::model()->findAll(array(
 					'condition'=>'res_id=:res_id',
-					'params'=>array(':res_id'=> GxHtml::encode(GxHtml::valueEx($model)) ),
+					'params'=>array(':res_id'=> $_GET["id"] ),
 				));
 				
-				echo count( GxHtml::encode(GxHtml::valueEx($model)) )." ";
+				echo count( $lepComment );
 			?>
         </span>
     </span>
 </a>
 
 
-<a class="mws-stat" href="table.html#">
+<a class="mws-stat" href="<?php echo Yii::app()->request->baseUrl."/lepArticle/" ?>">
     <!-- Statistic Icon (edit to change icon) -->
     <span class="mws-stat-icon icol32-note"></span>
     
@@ -41,16 +41,19 @@ $this->breadcrumbs = array(
         </span>
         <span class="mws-stat-value">
         	<?php 
-				echo '123';
-				//$command = "SELECT * from lep_resource";
-				//ß$dataReader=$command->query();
+				$lepArticle=LepArticle::model()->findAll(array(
+					'condition'=>'res_id=:res_id',
+					'params'=>array(':res_id'=> $_GET["id"] ),
+				));
+				
+				echo count( $lepArticle );
 			?>
         </span>
     </span>
 </a>
 
 
-<a class="mws-stat" href="table.html#">
+<a class="mws-stat" href="<?php echo Yii::app()->request->baseUrl."/lepEvent/" ?>">
     <!-- Statistic Icon (edit to change icon) -->
     <span class="mws-stat-icon icol32-note"></span>
     
@@ -61,13 +64,17 @@ $this->breadcrumbs = array(
         </span>
         <span class="mws-stat-value">
         	<?php 
-				echo '123';
-				//$command = "SELECT * from lep_resource";
-				//ß$dataReader=$command->query();
+				$lepEvent=LepEvent::model()->findAll(array(
+					'condition'=>'res_id=:res_id',
+					'params'=>array(':res_id'=> $_GET["id"] ),
+				));
+				
+				echo count( $lepEvent );
 			?>
         </span>
     </span>
 </a>
+
 
 <div class="mws-panel grid_8">
 	<div class="mws-panel-header">
