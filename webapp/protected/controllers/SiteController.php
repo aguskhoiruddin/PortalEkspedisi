@@ -3,7 +3,7 @@
 class SiteController extends Controller {
 
     /**
-     * Declares class-based actions.
+     * Declares class-based acti
      */
     public function actions() {
         return array(
