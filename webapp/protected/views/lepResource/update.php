@@ -32,7 +32,7 @@ $this->breadcrumbs = array(
     </a>
     
     
-    <a class="mws-stat" href="<?php echo Yii::app()->request->baseUrl."/lepArticle/" ?>">
+    <a class="mws-stat" href="<?php echo Yii::app()->request->baseUrl."/lepArticle/?res_id=".$_GET["id"] ?>">
         <!-- Statistic Icon (edit to change icon) -->
         <span class="mws-stat-icon icol32-note"></span>
         
@@ -55,7 +55,7 @@ $this->breadcrumbs = array(
     </a>
     
     
-    <a class="mws-stat" href="<?php echo Yii::app()->request->baseUrl."/lepEvent/" ?>">
+    <a class="mws-stat" href="<?php echo Yii::app()->request->baseUrl."/lepEvent/?res_id=".$_GET["id"] ?>">
         <!-- Statistic Icon (edit to change icon) -->
         <span class="mws-stat-icon icol32-events"></span>
         
@@ -80,7 +80,7 @@ $this->breadcrumbs = array(
     
     
     
-    <a class="mws-stat" href="<?php echo Yii::app()->request->baseUrl."/lepProduct/" ?>">
+    <a class="mws-stat" href="<?php echo Yii::app()->request->baseUrl."/lepProduct/?res_id=".$_GET["id"] ?>">
         <!-- Statistic Icon (edit to change icon) -->
         <span class="mws-stat-icon icol32-brick"></span>
         
@@ -102,7 +102,7 @@ $this->breadcrumbs = array(
         </span>
     </a>
     
-    <a class="mws-stat" href="<?php echo Yii::app()->request->baseUrl."/lepPromo/" ?>">
+    <a class="mws-stat" href="<?php echo Yii::app()->request->baseUrl."/lepPromo/?res_id=".$_GET["id"] ?>">
         <!-- Statistic Icon (edit to change icon) -->
         <span class="mws-stat-icon icol32-weather-sun"></span>
         

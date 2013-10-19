@@ -18,7 +18,15 @@
 			</thead>
 			<tbody>
 				<?php
-					$lepArticle = LepArticle::model()->findAll();
+				
+					if (empty($_GET["res_id"])) 
+						$lepArticle = LepArticle::model()->findAll();
+					else
+						$lepArticle=LepArticle::model()->findAll(array(
+							'condition'=>'res_id=:res_id',
+							'params'=>array(':res_id'=> $_GET["res_id"]),
+						));
+						
 					foreach($lepArticle as $m){
 						$usr = LepUser::model()->findByAttributes(array("user_id"=>$m->user_id));
 						$res = LepResource::model()->findByAttributes(array("res_id"=>$m->res_id));

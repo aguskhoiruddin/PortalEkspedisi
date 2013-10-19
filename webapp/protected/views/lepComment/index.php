@@ -1,4 +1,5 @@
 <?php Yii::app()->language='fr'; ?>
+
 <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 
@@ -22,7 +23,14 @@
 			</thead>
 			<tbody>
 				<?php
-					$lepComment = LepComment::model()->findAll();
+					if (empty($_GET["res_id"])) 
+						$lepComment = LepComment::model()->findAll();
+					else
+						$lepComment=LepComment::model()->findAll(array(
+							'condition'=>'res_id=:res_id',
+							'params'=>array(':res_id'=> $_GET["res_id"]),
+						));
+					
 					foreach($lepComment as $m){
 						$usr = LepUser::model()->findByAttributes(array("user_id"=>$m->user_id));
 						$res = LepResource::model()->findByAttributes(array("res_id"=>$m->res_id));

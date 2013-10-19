@@ -1,28 +1,26 @@
 <?php
 
-class LepEventController extends GxController {
+class LepProdCategoryController extends GxController {
 
 
 	public function actionView($id) {
-		$this->layout = '//layouts/mws-admin/main';
 		$this->render('view', array(
-			'model' => $this->loadModel($id, 'LepEvent'),
+			'model' => $this->loadModel($id, 'LepProdCategory'),
 		));
 	}
 
 	public function actionCreate() {
-		$this->layout = '//layouts/mws-admin/main';
-		$model = new LepEvent;
+		$model = new LepProdCategory;
 
 
-		if (isset($_POST['LepEvent'])) {
-			$model->setAttributes($_POST['LepEvent']);
+		if (isset($_POST['LepProdCategory'])) {
+			$model->setAttributes($_POST['LepProdCategory']);
 
 			if ($model->save()) {
 				if (Yii::app()->getRequest()->getIsAjaxRequest())
 					Yii::app()->end();
 				else
-					$this->redirect(array('view', 'id' => $model->event_id));
+					$this->redirect(array('view', 'id' => $model->category_id));
 			}
 		}
 
@@ -30,15 +28,14 @@ class LepEventController extends GxController {
 	}
 
 	public function actionUpdate($id) {
-		$this->layout = '//layouts/mws-admin/main';
-		$model = $this->loadModel($id, 'LepEvent');
+		$model = $this->loadModel($id, 'LepProdCategory');
 
 
-		if (isset($_POST['LepEvent'])) {
-			$model->setAttributes($_POST['LepEvent']);
+		if (isset($_POST['LepProdCategory'])) {
+			$model->setAttributes($_POST['LepProdCategory']);
 
 			if ($model->save()) {
-				$this->redirect(array('view', 'id' => $model->event_id));
+				$this->redirect(array('view', 'id' => $model->category_id));
 			}
 		}
 
@@ -49,7 +46,7 @@ class LepEventController extends GxController {
 
 	public function actionDelete($id) {
 		if (Yii::app()->getRequest()->getIsPostRequest()) {
-			$this->loadModel($id, 'LepEvent')->delete();
+			$this->loadModel($id, 'LepProdCategory')->delete();
 
 			if (!Yii::app()->getRequest()->getIsAjaxRequest())
 				$this->redirect(array('admin'));
@@ -58,19 +55,18 @@ class LepEventController extends GxController {
 	}
 
 	public function actionIndex() {
-		$this->layout = '//layouts/mws-admin/main';
-		$dataProvider = new CActiveDataProvider('LepEvent');
+		$dataProvider = new CActiveDataProvider('LepProdCategory');
 		$this->render('index', array(
 			'dataProvider' => $dataProvider,
 		));
 	}
 
 	public function actionAdmin() {
-		$model = new LepEvent('search');
+		$model = new LepProdCategory('search');
 		$model->unsetAttributes();
 
-		if (isset($_GET['LepEvent']))
-			$model->setAttributes($_GET['LepEvent']);
+		if (isset($_GET['LepProdCategory']))
+			$model->setAttributes($_GET['LepProdCategory']);
 
 		$this->render('admin', array(
 			'model' => $model,

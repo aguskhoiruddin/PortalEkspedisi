@@ -4,12 +4,14 @@ class LepPromoController extends GxController {
 
 
 	public function actionView($id) {
+		$this->layout = '//layouts/mws-admin/main';
 		$this->render('view', array(
 			'model' => $this->loadModel($id, 'LepPromo'),
 		));
 	}
 
 	public function actionCreate() {
+		$this->layout = '//layouts/mws-admin/main';
 		$model = new LepPromo;
 
 
@@ -28,6 +30,7 @@ class LepPromoController extends GxController {
 	}
 
 	public function actionUpdate($id) {
+		$this->layout = '//layouts/mws-admin/main';
 		$model = $this->loadModel($id, 'LepPromo');
 
 
@@ -55,6 +58,7 @@ class LepPromoController extends GxController {
 	}
 
 	public function actionIndex() {
+		$this->layout = '//layouts/mws-admin/main';
 		$dataProvider = new CActiveDataProvider('LepPromo');
 		$this->render('index', array(
 			'dataProvider' => $dataProvider,
