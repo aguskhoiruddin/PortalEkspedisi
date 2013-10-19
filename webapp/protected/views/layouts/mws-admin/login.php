@@ -23,8 +23,8 @@
 </head>
 
 <body>
-
-    <div id="mws-login-wrapper">
+  <?php echo $content ?>
+<!--    <div id="mws-login-wrapper">
         <div id="mws-login">
             <h1>Login</h1>
             <div class="mws-login-lock"><i class="icon-lock"></i></div>
@@ -54,20 +54,20 @@
                 </form>
             </div>
         </div>
-    </div>
+    </div>-->
 
     <!-- JavaScript Plugins -->
-    <script src="<?php echo Yii::app()->request->baseUrl; ?>/layout/mws-admin/js/libs/jquery-1.8.3.min.js"></script>
+<!--    <script src="<?php echo Yii::app()->request->baseUrl; ?>/layout/mws-admin/js/libs/jquery-1.8.3.min.js"></script>
     <script src="<?php echo Yii::app()->request->baseUrl; ?>/layout/mws-admin/js/libs/jquery.placeholder.min.js"></script>
     
-    <!-- jQuery-UI Dependent Scripts -->
+     jQuery-UI Dependent Scripts 
     <script src="<?php echo Yii::app()->request->baseUrl; ?>/layout/mws-admin/jui/js/jquery-ui-effects.min.js"></script>
 
-    <!-- Plugin Scripts -->
+     Plugin Scripts 
     <script src="<?php echo Yii::app()->request->baseUrl; ?>/layout/mws-admin/plugins/validate/jquery.validate-min.js"></script>
 
-    <!-- Login Script -->
-    <script src="<?php echo Yii::app()->request->baseUrl; ?>/layout/mws-admin/js/core/login.js"></script>
+     Login Script 
+    <script src="<?php echo Yii::app()->request->baseUrl; ?>/layout/mws-admin/js/core/login.js"></script>-->
 
 </body>
 </html>

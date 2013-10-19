@@ -1,53 +1,74 @@
-<?php
-/* @var $this SiteController */
-/* @var $model LoginForm */
-/* @var $form CActiveForm  */
 
-$this->pageTitle=Yii::app()->name . ' - Login';
-$this->breadcrumbs=array(
-	'Login',
-);
-?>
 
-<h1>Login</h1>
 
-<p>Please fill out the following form with your login credentials:</p>
+<div id="mws-login-wrapper">
+    <div id="mws-login">
+        <h1>Login</h1>
+        <div class="mws-login-lock"><i class="icon-lock"></i></div>
+        <div id="mws-login-form">
+            <?php
+            $form = $this->beginWidget('CActiveForm', array(
+                'id' => 'login-form',
+                'enableClientValidation' => true,
+                'clientOptions' => array(
+                    'validateOnSubmit' => true,
+                ),
+                'htmlOptions' => array(
+                    'class' => "mws-form"
+                )
+            ));
+            ?>
+            <?php echo $form->errorSummary($model,'','',array('style'=>'color:white;margin:10px 0 0 0;')); ?>
 
-<div class="form">
-<?php $form=$this->beginWidget('CActiveForm', array(
-	'id'=>'login-form',
-	'enableClientValidation'=>true,
-	'clientOptions'=>array(
-		'validateOnSubmit'=>true,
-	),
-)); ?>
+            <div class="mws-form-row">
+                <div class="mws-form-item">
+                    <?php echo $form->textField($model, 'username', array('class' => "mws-login-username required", 'placeholder' => "username")); ?>
+                </div>
+            </div>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
+            <div class="mws-form-row">
+                <div class="mws-form-item">
+                    <?php echo $form->passwordField($model, 'password', array('class' => "mws-login-username required", 'placeholder' => "password")); ?>
+                </div>
+            </div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'username'); ?>
-		<?php echo $form->textField($model,'username'); ?>
-		<?php echo $form->error($model,'username'); ?>
-	</div>
+            <div id="mws-login-remember" class="mws-form-row mws-inset">
+                <ul class="mws-form-list inline">
+                    <li>
+                        <?php echo $form->checkBox($model, 'rememberMe', array('id' => "remember")); ?>
+                        <?php echo $form->label($model, 'rememberMe'); ?>
+                    </li>
+                </ul>
+            </div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'password'); ?>
-		<?php echo $form->passwordField($model,'password'); ?>
-		<?php echo $form->error($model,'password'); ?>
-		<p class="hint">
-			Hint: You may login with <kbd>demo</kbd>/<kbd>demo</kbd> or <kbd>admin</kbd>/<kbd>admin</kbd>.
-		</p>
-	</div>
+            <div class="mws-form-row">
+                <?php echo CHtml::submitButton('Login', array('class' => "btn btn-success mws-login-button")); ?>
+            </div>
 
-	<div class="row rememberMe">
-		<?php echo $form->checkBox($model,'rememberMe'); ?>
-		<?php echo $form->label($model,'rememberMe'); ?>
-		<?php echo $form->error($model,'rememberMe'); ?>
-	</div>
-
-	<div class="row buttons">
-		<?php echo CHtml::submitButton('Login'); ?>
-	</div>
-
-<?php $this->endWidget(); ?>
-</div><!-- form -->
+            <?php $this->endWidget(); ?>
+        </div><!-- form -->
+        <!--            <form class="mws-form" action="dashboard.html" method="post">
+                        <div class="mws-form-row">
+                            <div class="mws-form-item">
+                                <input type="text" name="username" class="mws-login-username required" placeholder="username">
+                            </div>
+                        </div>
+                        <div class="mws-form-row">
+                            <div class="mws-form-item">
+                                <input type="password" name="password" class="mws-login-password required" placeholder="password">
+                            </div>
+                        </div>
+                        <div id="mws-login-remember" class="mws-form-row mws-inset">
+                            <ul class="mws-form-list inline">
+                                <li>
+                                    <input id="remember" type="checkbox"> 
+                                    <label for="remember">Remember me</label>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="mws-form-row">
+                            <input type="submit" value="Login" class="btn btn-success mws-login-button">
+                        </div>
+                    </form>-->
+    </div>
+</div>
