@@ -1,6 +1,6 @@
 <?php
 /**
- * This is anggri test commit 2
+ * This is file index test for yii
  * This file should be removed when the application is deployed for production.
  */
 
