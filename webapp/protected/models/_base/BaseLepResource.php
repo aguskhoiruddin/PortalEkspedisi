@@ -223,7 +223,7 @@ abstract class BaseLepResource extends GxActiveRecord {
 
     public function detailCompany($id) {
         $sql = "
-            SELECT title, 
+            SELECT res_id as id, title, address, phone, fax,description,logo,
             (select count(promo) from lep_promo where res_id=:id)  as promo ,
             (select count(event) from lep_event where res_id=:id)  as event ,
             (select count(title) from lep_product where res_id=:id)  as product ,
@@ -243,14 +243,13 @@ abstract class BaseLepResource extends GxActiveRecord {
         return $row;
     }
     
-    public function commentCompany($category_id) {
+    public function commentCompany($id) {
         $sql = "
-            SELECT res_id, title FROM lep_resource where category_id=:category_id
+            SELECT * FROM lep_comment where res_id=:id
         ";
-        $dependency = new CDbCacheDependency('SELECT MAX(ss_last_update) FROM lep_resource');
-        $connection = Yii::app()->db->cache(1000, $dependency);
+        $connection = Yii::app()->db;
         $command = $connection->createCommand($sql);
-        $command->bindParam(':category_id', $category_id);
+        $command->bindParam(':id', $id);
         $row = $command->queryAll();
         return $row;
     }
@@ -321,6 +320,32 @@ abstract class BaseLepResource extends GxActiveRecord {
                 'pageSize' => 8,
             ),
         ));
+    }
+    
+    public function getDetailCompany($id,$page) {
+        $sql=NULL;
+        if($page=='image')
+            $sql = "SELECT * FROM lep_image where res_id=:id";
+        elseif($page=='video')
+            $sql = "SELECT * FROM lep_video where res_id=:id";
+        elseif($page=='promo')
+            $sql = "SELECT * FROM lep_promo where res_id=:id";
+        elseif($page=='event')
+            $sql = "SELECT * FROM lep_event where res_id=:id";
+        elseif($page=='product')
+            $sql = "SELECT * FROM lep_product where res_id=:id";
+        elseif($page=='document')
+            $sql = "SELECT * FROM lep_document where res_id=:id";
+        elseif($page=='new')
+            $sql = "SELECT * FROM lep_news where res_id=:id";
+        elseif($page=='article')
+            $sql = "SELECT * FROM lep_article where res_id=:id";
+        
+        $connection = Yii::app()->db;
+        $command = $connection->createCommand($sql);
+        $command->bindParam(':id', $id);
+        $row = $command->queryAll();
+        return $row;
     }
 
 }

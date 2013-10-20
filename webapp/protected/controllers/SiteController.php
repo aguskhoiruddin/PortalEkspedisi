@@ -29,23 +29,43 @@ class SiteController extends Controller {
     }
 
     public function actionDetail($id) {
-        $model=  LepResource::model()->detailCompany($id);
-        $this->render('detail',array('model'=>$model));
+        $model = new LepResource;
+        $detailCompany = $model->detailCompany($id);
+        $comment = new LepComment;
+        if (isset($_POST['LepComment'])) {
+            $comment->setAttributes($_POST['LepComment']);
+            $comment->res_id=$id;
+            $comment->user_id=0;
+            $comment->status=0;
+            $comment->created_at=date('Y-m-d');
+            $comment->rating=1;
+            if ($comment->save()) {
+                if (Yii::app()->getRequest()->getIsAjaxRequest())
+                    Yii::app()->end();
+//                else
+//                    $this->redirect(array('view', 'id' => $model->comment_id));
+            }
+        }
+        $this->render('detail', array(
+            'model' => $model,
+            'detailCompany' => $detailCompany,
+            'comment' => $comment,
+        ));
     }
-    
+
     public function actionListcompany($id) {
-        $model=  LepResource::model()->listCompany($id);
-        $this->render('list_company',array('model'=>$model));
+        $model = LepResource::model()->listCompany($id);
+        $this->render('list_company', array('model' => $model));
     }
-    
+
     public function actionSearch() {
-        $model= New LepResource;
-        $this->render('search',array('model'=>$model));
+        $model = New LepResource;
+        $this->render('search', array('model' => $model));
     }
-    
+
     public function actionCity() {
-        $model= New LepResource;
-        $this->render('city',array('model'=>$model));
+        $model = New LepResource;
+        $this->render('city', array('model' => $model));
     }
 
     /**
@@ -87,7 +107,7 @@ class SiteController extends Controller {
      * Displays the login page
      */
     public function actionLogin() {
-        $this->layout='//layouts/mws-admin/login';
+        $this->layout = '//layouts/mws-admin/login';
         $model = new LoginForm;
 
         // if it is ajax validation request
