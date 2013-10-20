@@ -16,12 +16,12 @@ foreach (LepResource::model()->indexCompany() as $m) {
 // fungsi list category<br/>
 <?php
 foreach (LepCategory::model()->indexCategory() as $m) {
-    echo CHtml::link($m['title'].'['.$m['count'].']',array('listcompany','id'=>$m['category_id'])).'<br/>';
+    echo CHtml::link(Yii::t('strings',$m['title'].'['.$m['count'].']'),array('listcompany','id'=>$m['category_id'])).'<br/>';
 }
 ?>
 // fungsi list city<br/>
 <?php
 foreach (LepResource::model()->cityCompany() as $m) {
-    echo CHtml::link($m['city'],array('city','city'=>$m['city'])).'<br/>';
+    echo CHtml::link(Yii::t('strings',$m['city']),array('city','city'=>$m['city'])).'<br/>';
 }
 ?>
