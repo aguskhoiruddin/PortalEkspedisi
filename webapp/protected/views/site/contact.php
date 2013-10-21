@@ -1,7 +1,7 @@
 <?php
 /* @var $this SiteController */
 /* @var $model ContactForm */
-/* @var $form CActiveForm */
+/* @var $form CActivem */
 
 $this->pageTitle=Yii::app()->name . ' - Contact Us';
 $this->breadcrumbs=array(
