@@ -223,13 +223,35 @@ abstract class BaseLepResource extends GxActiveRecord {
 
     public function detailCompany($id) {
         $sql = "
-            SELECT * FROM lep_resource where res_id=:id
+            SELECT title, 
+            (select count(promo) from lep_promo where res_id=:id)  as promo ,
+            (select count(event) from lep_event where res_id=:id)  as event ,
+            (select count(title) from lep_product where res_id=:id)  as product ,
+            (select count(title) from lep_article where res_id=:id)  as article ,
+            (select count(title) from lep_image where res_id=:id)  as image ,
+            (select count(title) from lep_video where res_id=:id)  as video,
+            (select count(title) from lep_document where res_id=:id)  as document  ,
+            (select count(title) from lep_news where res_id=:id)  as new  
+            FROM lep_resource 
+            where res_id=:id
         ";
         $dependency = new CDbCacheDependency('SELECT MAX(ss_last_update) FROM lep_resource');
         $connection = Yii::app()->db->cache(1000, $dependency);
         $command = $connection->createCommand($sql);
         $command->bindParam(':id', $id);
         $row = $command->queryRow();
+        return $row;
+    }
+    
+    public function commentCompany($category_id) {
+        $sql = "
+            SELECT res_id, title FROM lep_resource where category_id=:category_id
+        ";
+        $dependency = new CDbCacheDependency('SELECT MAX(ss_last_update) FROM lep_resource');
+        $connection = Yii::app()->db->cache(1000, $dependency);
+        $command = $connection->createCommand($sql);
+        $command->bindParam(':category_id', $category_id);
+        $row = $command->queryAll();
         return $row;
     }
 
