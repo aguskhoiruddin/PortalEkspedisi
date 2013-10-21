@@ -1,6 +1,6 @@
 <?php
 /**
- * This is file index test for yii 
+ * This is file index test for yii tets
  * This file should be removed when the application is deployed for production.
  */
 
