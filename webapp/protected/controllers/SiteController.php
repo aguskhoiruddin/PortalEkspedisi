@@ -28,6 +28,11 @@ class SiteController extends Controller {
         $this->render('index');
     }
 
+    public function actionServices() {
+		
+		$this->layout = '//layouts/blank';
+        $this->render('services');
+    }
     public function actionDetail($id) {
         $model = new LepResource;
         $detailCompany = $model->detailCompany($id);

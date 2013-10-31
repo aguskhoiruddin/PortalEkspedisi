@@ -34,6 +34,29 @@
 					foreach($lepComment as $m){
 						$usr = LepUser::model()->findByAttributes(array("user_id"=>$m->user_id));
 						$res = LepResource::model()->findByAttributes(array("res_id"=>$m->res_id));
+						
+						$strBtnApprove = "";
+						$strBtnDelete = "";
+						if($m->status == 2){
+							$strBtnDelete = "
+								<a href='#' id='btnDelete' class='btn btn-danger'>
+									".Yii::t('strings',"Delete")."
+								</a>
+							";
+						}else if($m->status == 1){
+							$strBtnApprove = "
+								<a href='#' id='btnApprove' class='btn btn-primary'>
+									".Yii::t('strings',"Approve")."
+								</a>
+							";
+							$strBtnDelete = "
+								<a href='#' id='btnDelete' class='btn btn-danger'>
+									".Yii::t('strings',"Delete")."
+								</a>
+							";
+						}else {
+						
+						}
 						echo "<tr>
 							<td>".$m->subject."</td>
 							<td style='text-align:center'>".$usr->username."</td>
@@ -41,16 +64,8 @@
 							<td style='text-align:center'>".$m->comment."</td>
 							<td style='text-align:center'>".$m->rating."</td>
 							<td style='text-align:center'>".$m->created_at."</td>
-							<td style='text-align:center'>
-								<a href='#' id='btnApprove' class='btn btn-primary'>
-									".Yii::t('strings',"Approve")."
-								</a>
-							</td>
-							<td style='text-align:center'>
-								<a href='#' id='btnDelete' class='btn btn-danger'>
-									".Yii::t('strings',"Delete")."
-								</a>
-							</td>
+							<td style='text-align:center'>".$strBtnApprove."</td>
+							<td style='text-align:center'>".$strBtnDelete."</td>
 						</tr>";
 					}
 				?>
