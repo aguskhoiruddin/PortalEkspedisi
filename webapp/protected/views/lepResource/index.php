@@ -19,7 +19,7 @@
 				<?php
 					$lepResource = LepResource::model()->findAll();
 					foreach($lepResource as $m){
-						$cat = lepCategory::model()->findByAttributes(array("category_id"=>$m->category_id));
+						$cat = LepCategory::model()->findByAttributes(array("category_id"=>$m->category_id));
 						echo "<tr>
 							<td>".$m->title."</td>
 							<td style='text-align:center'>".$m->owner_name."</td>

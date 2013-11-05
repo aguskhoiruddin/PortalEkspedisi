@@ -15,7 +15,7 @@
 			<div class="mws-form-item">
 				<?php //echo $form->textField($model, 'category_id',array('maxlength'=>'255')); ?>
 				<?php
-					$data = CHtml::listData(lepCategory::model()->findAll(), 
+					$data = CHtml::listData(LepCategory::model()->findAll(), 
 						'category_id', 'title');
 					echo $form->dropDownList(
 						$model,
