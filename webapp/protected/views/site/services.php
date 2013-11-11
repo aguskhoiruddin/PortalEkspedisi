@@ -3,6 +3,7 @@
 	if(array_key_exists('Mode', $_GET)){
 		$mode = trim($_GET["Mode"]);
 	}
+	echo date("m-d-Y");
 	
 	switch ($mode) {
     case "0":
@@ -25,6 +26,9 @@
         break;
     case "6":
 		PromoList();
+        break;
+    case "7":
+		InsertComment();
         break;
 	default:
 		Info();
@@ -62,7 +66,13 @@
 	function CommentList(){
 		$criteria = SetCriteria();
 		$lepComment = LepComment::model()->findAll($criteria);
-		echo CJSON::encode($lepComment );
+		foreach($lepComment as $m){
+			$res = $m->getAttributes();
+			$usr = LepUser::model()->findByAttributes(array("user_id"=>$m->user_id));
+			$res["username"] = $usr->username;
+			$result[] = $res;
+		}
+		echo json_encode($result);
 	}
 	function EventList(){
 		$criteria = SetCriteria();
@@ -83,6 +93,20 @@
 		$criteria = SetCriteria();
 		$lepPromo = LepPromo::model()->findAll($criteria);
 		echo CJSON::encode($lepPromo );
+	}
+	function InsertComment(){
+		$lepComment = new LepComment;
+		$lepComment->unsetAttributes();
+		$lepComment->setIsNewRecord(true);
+        $lepComment->res_id = $_GET["Res_id"];
+        $lepComment->user_id = $_GET["User_id"];
+        $lepComment->comment = $_GET["Comment"];
+        $lepComment->status = $_GET["Status"];
+        $lepComment->created_at = date("m-d-Y");
+        $lepComment->subject = $_GET["Subject"];
+        $lepComment->rating = $_GET["Rating"];
+        $lepComment->save();
+		echo "asdasd";
 	}
 	function Info(){
 		$strInfo = "" .
