@@ -3,7 +3,6 @@
 	if(array_key_exists('Mode', $_GET)){
 		$mode = trim($_GET["Mode"]);
 	}
-	echo date("m-d-Y");
 	
 	switch ($mode) {
     case "0":
@@ -106,9 +105,15 @@
         $lepComment->subject = $_GET["Subject"];
         $lepComment->rating = $_GET["Rating"];
         $lepComment->save();
-		echo "asdasd";
+		
+		echo CVarDumper::Dump($lepComment->getErrors(),100,true);
+		$res["result"] = "OK";
+		echo json_encode($res);
 	}
 	function Info(){
+		
+		echo date("m-d-Y")."<br />";
+	
 		$strInfo = "" .
 		"<h3>Services for Ekspedisi.net </h3>" .
 		"<b>Mode 0: Company List</b><br />" .
@@ -121,16 +126,19 @@
 		"/Services?<b>Mode</b>=2&<b>Condition</b>=[sqlCondition](optional)&<b>Limit</b>=[Limit](optional)&<b>Offset</b>=[Offset](optional)<br /><br />" .
 		"".
 		"<b>Mode 3: Event List</b><br />" .
-		"/Services?<b>Mode</b>=2&<b>Condition</b>=[sqlCondition](optional)&<b>Limit</b>=[Limit](optional)&<b>Offset</b>=[Offset](optional)<br /><br />" .
+		"/Services?<b>Mode</b>=3&<b>Condition</b>=[sqlCondition](optional)&<b>Limit</b>=[Limit](optional)&<b>Offset</b>=[Offset](optional)<br /><br />" .
 		"".
 		"<b>Mode 4: Article List</b><br />" .
-		"/Services?<b>Mode</b>=2&<b>Condition</b>=[sqlCondition](optional)&<b>Limit</b>=[Limit](optional)&<b>Offset</b>=[Offset](optional)<br /><br />" .
+		"/Services?<b>Mode</b>=4&<b>Condition</b>=[sqlCondition](optional)&<b>Limit</b>=[Limit](optional)&<b>Offset</b>=[Offset](optional)<br /><br />" .
 		"".
 		"<b>Mode 5: Product List</b><br />" .
-		"/Services?<b>Mode</b>=2&<b>Condition</b>=[sqlCondition](optional)&<b>Limit</b>=[Limit](optional)&<b>Offset</b>=[Offset](optional)<br /><br />" .
+		"/Services?<b>Mode</b>=5&<b>Condition</b>=[sqlCondition](optional)&<b>Limit</b>=[Limit](optional)&<b>Offset</b>=[Offset](optional)<br /><br />" .
 		"".
 		"<b>Mode 6: Promo List</b><br />" .
-		"/Services?<b>Mode</b>=2&<b>Condition</b>=[sqlCondition](optional)&<b>Limit</b>=[Limit](optional)&<b>Offset</b>=[Offset](optional)<br /><br />" .
+		"/Services?<b>Mode</b>=6&<b>Condition</b>=[sqlCondition](optional)&<b>Limit</b>=[Limit](optional)&<b>Offset</b>=[Offset](optional)<br /><br />" .
+		"".
+		"<b>Mode 7: Insert Comment</b><br />" .
+		"/Services?<b>Mode</b>=7&<b>Res_id</b>=[Res_id]&<b>User_id</b>=[User_id]&<b>Comment</b>=[Comment]&<b>Status</b>=[Status]&<b>Subject</b>=[Subject]&<b>Rating</b>=[Rating]<br /><br />" .
 		"";
 		echo $strInfo;
 	}
