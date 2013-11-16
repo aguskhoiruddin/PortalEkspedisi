@@ -29,6 +29,9 @@
     case "7":
 		InsertComment();
         break;
+    case "8":
+		Login();
+        break;
 	default:
 		Info();
 		break;
@@ -110,6 +113,14 @@
 		$res["result"] = "OK";
 		echo json_encode($res);
 	}
+	function Login() {
+		$usr = LepUser::model()->findByAttributes(array("username"=>$_GET["Username"], "password"=>md5($_GET["Password"])));
+		if (count($usr) == 1){
+			echo "ok ".$lepComment->user_id." ".$lepComment->user_id;
+		}else{
+			echo "failed".count($usr);
+		}
+	}
 	function Info(){
 		
 		echo date("m-d-Y")."<br />";
@@ -139,6 +150,9 @@
 		"".
 		"<b>Mode 7: Insert Comment</b><br />" .
 		"/Services?<b>Mode</b>=7&<b>Res_id</b>=[Res_id]&<b>User_id</b>=[User_id]&<b>Comment</b>=[Comment]&<b>Status</b>=[Status]&<b>Subject</b>=[Subject]&<b>Rating</b>=[Rating]<br /><br />" .
+		"".
+		"<b>Mode 8: Login</b><br />" .
+		"/Services?<b>Mode</b>=8&<b>Username</b>=[Username]&<b>Password</b>=[Password]<br /><br />" .
 		"";
 		echo $strInfo;
 	}
